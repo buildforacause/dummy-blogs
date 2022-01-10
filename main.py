@@ -62,7 +62,7 @@ class BlogPost(db.Model):
     img_url = db.Column(db.String(500), nullable=False)
     comments = relationship("Comment", back_populates="parent_post")
     likes = db.Column(db.Integer, default=0)
-db.create_all()
+
 
 class Comment(db.Model):
     __tablename__ = "comments"
