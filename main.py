@@ -74,6 +74,9 @@ class Comment(db.Model):
     text = db.Column(db.Text, nullable=False)
 
 
+db.create_all()
+
+
 @app.route('/')
 def get_all_posts():
     posts = BlogPost.query.all()
