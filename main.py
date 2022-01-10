@@ -55,14 +55,14 @@ class BlogPost(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     author_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     author = relationship("User", back_populates="posts")
-    title = db.Column(db.String(250), unique=True, nullable=False)
-    subtitle = db.Column(db.String(250), nullable=False)
+    title = db.Column(db.String(500), unique=True, nullable=False)
+    subtitle = db.Column(db.String(500), nullable=False)
     date = db.Column(db.String(250), nullable=False)
     body = db.Column(db.Text, nullable=False)
-    img_url = db.Column(db.String(250), nullable=False)
+    img_url = db.Column(db.String(500), nullable=False)
     comments = relationship("Comment", back_populates="parent_post")
     likes = db.Column(db.Integer, default=0)
-
+db.create_all()
 
 class Comment(db.Model):
     __tablename__ = "comments"
